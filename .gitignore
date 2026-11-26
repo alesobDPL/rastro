@@ -1,0 +1,8 @@
+
+# proyecto-ordenado
+/docs/privado/
+/docs/.obsidian/
+.env
+.env.*
+!.env.example
+.claude/settings.local.json
