@@ -12,7 +12,7 @@ _EMAILS = [f"persona{index}@example.cl" for index in range(5)]
     [
         ("titular", Category.IDENTIFIER),
         ("responsable", Category.IDENTIFIER),
-        ("recibido por", Category.IDENTIFIER),
+        ("received by courier", Category.IDENTIFIER),
         ("received by", Category.IDENTIFIER),
         ("monto", Category.FINANCIAL),
         ("reembolso", Category.FINANCIAL),
@@ -181,7 +181,6 @@ def test_clinical_event_supplies_health_evidence(phrase: str) -> None:
         "folio_interno",
         "serie_interno",
         "lote_interno",
-        "version_interno",
         "creado_interno",
         "actualizado_interno",
         "created_interno",

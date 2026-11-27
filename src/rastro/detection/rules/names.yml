@@ -37,7 +37,7 @@ rules:
     confidence: 0.8
     unless: [animal, mascota, pet]
   - id: name.person_by_role
-    tokens: [titular, responsable, recibido por, received by]
+    tokens: [titular, responsable, received by]
     category: identifier
     confidence: 0.7
   - id: name.plate
