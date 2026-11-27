@@ -21,6 +21,11 @@ organization:
   - institutions
   - organization
   - organizations
+  - juridica
+  - aduanera
+  - central
+  - flota
+  - corporativo
 metadata:
   - template
   - plantilla
@@ -33,7 +38,31 @@ metadata:
   - cantidad
   - count
   - flag
+  - campana
+  - transaccional
 suffixes: [id, codigo]
+person_roles:
+  - agente
+  - ejecutivo
+  - titular
+  - responsable
+  - retirante
+  - particular
+  - agent
+  - holder
+  - driver
+  - customer
+technical:
+  - clave
+  - codigo
+  - folio
+  - serie
+  - lote
+  - creado
+  - actualizado
+  - created
+  - updated
+  - audit
 free_text:
   - obs
   - nota

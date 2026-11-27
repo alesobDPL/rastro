@@ -2,8 +2,10 @@ from collections.abc import Sequence
 from dataclasses import dataclass, field
 
 from rastro.detection.name_rules import (
+    _NameRule,
     category_sensitivity,
     matching_name_rules,
+    matching_table_rule,
     suppression_context,
 )
 from rastro.detection.normalize import normalize_name
@@ -38,6 +40,19 @@ class ColumnDetection:
     suppressed: list[SuppressionRecord]
 
 
+def _name_detection(rule: _NameRule, evidence: str) -> Detection:
+    return Detection(
+        category=rule.category,
+        subcategory=rule.subcategory,
+        sensitivity=category_sensitivity(rule.category),
+        confidence=rule.confidence,
+        detector=Detector.NAME,
+        rule_id=rule.rule_id,
+        kind=None,
+        raw_evidence=evidence,
+    )
+
+
 def detect_column(*, table: str, column: str, samples: Sequence[str | None]) -> ColumnDetection:
     table_tokens = normalize_name(table)
     column_tokens = normalize_name(column)
@@ -56,16 +71,12 @@ def detect_column(*, table: str, column: str, samples: Sequence[str | None]) -> 
         if rule_context is not None and rule.category in _SUPPRESSIBLE_CATEGORIES:
             result.suppressed.append(SuppressionRecord(rule.rule_id, rule_context, Detector.NAME))
             continue
-        result.detections.append(Detection(
-            category=rule.category,
-            subcategory=rule.subcategory,
-            sensitivity=category_sensitivity(rule.category),
-            confidence=rule.confidence,
-            detector=Detector.NAME,
-            rule_id=rule.rule_id,
-            kind=None,
-            raw_evidence=evidence,
-        ))
+        result.detections.append(_name_detection(rule, evidence))
+
+    if not result.detections:
+        table_match = matching_table_rule(table_tokens, column_tokens)
+        if table_match is not None:
+            result.detections.append(_name_detection(*table_match))
 
     for kind, category, confidence, evidence in matching_value_patterns(samples):
         rule_id = f"pattern.{kind.value}"

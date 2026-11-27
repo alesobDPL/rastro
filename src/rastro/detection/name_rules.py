@@ -28,9 +28,9 @@ def _normalized_tokens(values: Sequence[str]) -> frozenset[str]:
 
 
 @cache
-def _rules_by_first_token() -> dict[str, list[tuple[tuple[str, ...], _NameRule]]]:
+def _rules_by_first_token(section: str) -> dict[str, list[tuple[tuple[str, ...], _NameRule]]]:
     rules: dict[str, list[tuple[tuple[str, ...], _NameRule]]] = {}
-    for entry in _load_yaml("names.yml")["rules"]:
+    for entry in _load_yaml("names.yml")[section]:
         rule = _NameRule(
             rule_id=entry["id"],
             category=Category(entry["category"]),
@@ -63,9 +63,11 @@ def category_sensitivity(category: Category) -> Sensitivity:
     return _sensitivities()[category]
 
 
-def matching_name_rules(tokens: Sequence[str]) -> Iterator[tuple[_NameRule, str]]:
+def matching_name_rules(
+    tokens: Sequence[str], *, section: str = "rules",
+) -> Iterator[tuple[_NameRule, str]]:
     tokens = tuple(tokens)
-    rules = _rules_by_first_token()
+    rules = _rules_by_first_token(section)
     matches: dict[_NameRule, tuple[str, ...]] = {}
     start = 0
     while start < len(tokens):
@@ -83,6 +85,23 @@ def matching_name_rules(tokens: Sequence[str]) -> Iterator[tuple[_NameRule, str]
         yield rule, " ".join(phrase)
 
 
+def matching_table_rule(
+    table_tokens: Sequence[str], column_tokens: Sequence[str],
+) -> tuple[_NameRule, str] | None:
+    context = _context_tokens()
+    if not context["organization"].isdisjoint(table_tokens):
+        return None
+    if _technical_suffix(column_tokens) or not context["technical"].isdisjoint(column_tokens):
+        return None
+    return next(matching_name_rules(table_tokens, section="table_rules"), None)
+
+
+def _technical_suffix(column_tokens: Sequence[str]) -> str | None:
+    if column_tokens and column_tokens[-1] in _context_tokens()["suffixes"]:
+        return column_tokens[-1]
+    return None
+
+
 def suppression_context(
     table_tokens: Sequence[str],
     column_tokens: Sequence[str],
@@ -91,17 +110,20 @@ def suppression_context(
 ) -> str | None:
     context = _context_tokens()
     organizations = context["organization"]
-    organization = next(
-        (token for token in (*column_tokens, *table_tokens) if token in organizations), None
-    )
+    organization = next((token for token in column_tokens if token in organizations), None)
     if organization is not None:
         return organization
+    if context["person_roles"].isdisjoint(column_tokens):
+        organization = next((token for token in table_tokens if token in organizations), None)
+        if organization is not None:
+            return organization
     if has_personal_name:
         metadata = next((token for token in column_tokens if token in context["metadata"]), None)
         if metadata is not None:
             return metadata
-    if column_tokens and column_tokens[-1] in context["suffixes"]:
-        return f"suffix:{column_tokens[-1]}"
+    suffix = _technical_suffix(column_tokens)
+    if suffix is not None:
+        return f"suffix:{suffix}"
     return None
 
 
