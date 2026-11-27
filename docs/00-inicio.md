@@ -5,11 +5,11 @@ Copiloto local de cumplimiento de la Ley 21.719: inventaria los datos personales
 ## Estado actual · actualizado 2026-11-27
 
 - **Fase:** plan
-- **Funcionalidad activa:** F1 Escaneo Postgres medible (spec: [aprobado 2026-11-27](superpowers/specs/2026-11-26-escaneo-postgres-medible-design.md) · plan: en redacción · rama: `feat/escaneo-postgres-medible`)
+- **Funcionalidad activa:** F1 Escaneo Postgres medible (spec: [aprobado 2026-11-27](superpowers/specs/2026-11-26-escaneo-postgres-medible-design.md) · plan: [propuesto 2026-11-27](superpowers/plans/2026-11-27-escaneo-postgres-medible.md) · rama: `feat/escaneo-postgres-medible`)
 - **Lote en curso:** —
-- **Último avance:** hoja de ruta y spec de F1 aprobados por el propietario el 2026-11-27.
-- **Bloqueos:** ninguno.
-- **Siguiente paso:** Claude: escribir el plan de F1 (writing-plans) con su tabla de lotes y redactar los encargos del lote 0.
+- **Último avance:** plan de F1 escrito (Propuesto, 2026-11-27) con 4 lotes y 2 mediciones; borrador del encargo del lote 0.
+- **Bloqueos:** el plan espera la aprobación del propietario.
+- **Siguiente paso:** propietario: revisar y aprobar el plan de F1. Luego Claude completa Comandos en `AGENTS.md`, autoriza y lanza el encargo del lote 0.
 - **Última bitácora:** ninguna todavía.
 
 | Encargo | Lote | Estado | Siguiente paso |
