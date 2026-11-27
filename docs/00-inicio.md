@@ -6,10 +6,10 @@ Copiloto local de cumplimiento de la Ley 21.719: inventaria los datos personales
 
 - **Fase:** implementación
 - **Funcionalidad activa:** F1 Escaneo Postgres medible (spec: [aprobado 2026-11-27](superpowers/specs/2026-11-26-escaneo-postgres-medible-design.md) · plan: [aprobado 2026-11-27](superpowers/plans/2026-11-27-escaneo-postgres-medible.md) · rama: `feat/escaneo-postgres-medible`)
-- **Lote en curso:** lotes 0, 1, 2 y 3 (E1–E7) integrados en `feat/escaneo-postgres-medible` (248 pruebas, ruff OK). ADR-001 Aprobado (2026-11-27). Falta M2 y la revisión final.
-- **Último avance:** lote 3 (E7) aceptado e integrado. Dev: precisión 0.978, exhaustividad 0.777, sensibles 0.407 (línea base M1: 0.875 / 0.625 / 0.259). Holdout sin medir aún.
+- **Lote en curso:** lotes 0, 1, 2 y 3 (E1–E7) integrados en `feat/escaneo-postgres-medible` (248 pruebas, ruff OK). ADR-001 Aprobado (2026-11-27). M2 hecha (medición y README); falta la revisión final.
+- **Último avance:** M2: README escrito y medición final. Dev: precisión 0.978, exhaustividad 0.777, sensibles 0.407 (M1: 0.875 / 0.625 / 0.259). Holdout: 0.923 / 0.585 / 0.321 (M1: 0.889 / 0.585 / 0.321): la mejora de dev no se transfirió al holdout salvo en precisión; el README lo declara.
 - **Bloqueos:** ninguno.
-- **Siguiente paso:** M2: Sonnet mide dev y holdout sobre la rama integrada y escribe el README (documentando el texto libre y los nombres opacos como límite de F1 y motivo de F2); después, revisión final de la rama por el subagente Opus.
+- **Siguiente paso:** revisión final de la rama por el subagente Opus; después `finishing-a-development-branch` (merge a `main` solo con el sí del propietario).
 - **Última bitácora:** ninguna todavía.
 
 | Encargo | Lote | Estado | Siguiente paso |
@@ -20,7 +20,7 @@ Copiloto local de cumplimiento de la Ley 21.719: inventaria los datos personales
 | E4 conector y enmascarador | 1 | integrado | — |
 | E5 escáner y CLI | 2 | integrado | — |
 | E6 evaluación | 2 | integrado | — |
-| E7 ajuste de detección | 3 | integrado | M2 |
+| E7 ajuste de detección | 3 | integrado | — |
 
 <!-- Fases: descubrimiento | diseño | plan | implementación | revisión | despliegue.
      Este bloque es el índice; el detalle de cada encargo vive en su Seguimiento (docs/privado/encargos/).
