@@ -4,12 +4,12 @@ Copiloto local de cumplimiento de la Ley 21.719: inventaria los datos personales
 
 ## Estado actual · actualizado 2026-11-27
 
-- **Fase:** F1 terminada y en `main` (push a origin, 2026-11-27); E8 (N1–N3) integrado en `feat/endurecer-cli-escaneo` (sin merge a `main`); F2 con spec **Propuesto**.
+- **Fase:** F1 terminada y en `main` (push a origin, 2026-11-27); E8 (N1–N3) integrado en `feat/endurecer-cli-escaneo` (sin merge a `main`); F2 con spec **Aprobado** (2026-11-27); plan de F2 en redacción (Opus).
 - **Funcionalidad activa:** ninguna. Endurecimiento del CLI (E8) en `feat/endurecer-cli-escaneo`: `--sample-size` ≥ 1, `connect_timeout` 10 s por defecto, validación de `-o`.
 - **Lote en curso:** ninguno. E1–E8 integrados; 262 pruebas, ruff OK en la rama.
-- **Último avance:** E8 aceptado por el propietario e integrado (2026-11-27). Spec F2 (capa IA, solo OpenAI, tope USD 1,50 acumulado) escrito por Opus, pendiente de aprobación.
+- **Último avance:** E8 aceptado por el propietario e integrado (2026-11-27). Spec F2 (capa IA, solo OpenAI, tope USD 1,50 acumulado) aprobado por el propietario (2026-11-27), con la corrección de modelos en la hoja de ruta y en el spec de F1.
 - **Bloqueos:** ninguno.
-- **Siguiente paso:** propietario: aprobar el spec F2 (`superpowers/specs/2026-11-27-capa-ia-design.md`) y la corrección de la hoja de ruta; decidir el merge de `feat/endurecer-cli-escaneo` a `main`. Luego: plan de F2 (Opus). La clave de OpenAI solo se pide cuando haga falta, por variable de entorno.
+- **Siguiente paso:** subagente Opus: escribir el plan de F2 (`superpowers/plans/`, lotes 0, 1, 2A/2B, H2, M3) como Propuesto; propietario: aprobarlo y decidir el merge de `feat/endurecer-cli-escaneo` a `main`. La clave de OpenAI solo se pide cuando haga falta, por variable de entorno.
 - **Última bitácora:** ninguna todavía.
 
 | Encargo | Lote | Estado | Siguiente paso |

@@ -2,7 +2,7 @@
 
 [Volver a specs](README.md) · [Hoja de ruta](../../hoja-de-ruta.md) · [Spec de F1](2026-11-26-escaneo-postgres-medible-design.md) · [Preguntas de diseño](../../privado/fases-y-pruebas/f2-preguntas-de-diseno.md)
 
-Estado: **Propuesto** el 2026-11-27 (subagente Opus, arquitecto). Las decisiones que el propietario tomó el 2026-11-27 figuran como **Aprobado** en §10. Todo lo demás, incluidas las decisiones de Claude marcadas en el texto, está **Propuesto**. Mientras siga así, este documento no autoriza el plan ni la implementación.
+Estado: **Aprobado** por el propietario el 2026-11-27 (spec completo, incluidas las decisiones marcadas como Propuesto en §10, que quedan aprobadas con él; también la corrección de modelos de §12.1 en la hoja de ruta y en el spec de F1). Redactado por el subagente Opus como Propuesto el mismo día. Autoriza el plan; la implementación espera al plan aprobado.
 
 ## 1. Intención
 
