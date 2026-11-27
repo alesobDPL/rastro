@@ -4,8 +4,8 @@ Claude Code es arquitecto y revisor; Codex implementa; el propietario aprueba. E
 
 ## Mapa
 
-- **Stack:** <lenguaje · framework · base de datos · pruebas> (pendiente hasta aprobar el plan)
-- **Directorios:** `<src/…>` (…), `<tests/…>`, `docs/` (solo Claude)
+- **Stack:** Python ≥ 3.11 · Typer · SQLAlchemy 2 + psycopg 3 · Pydantic 2 · PyYAML · Postgres 16 en Docker · pytest + Faker · ruff
+- **Directorios:** `src/rastro/` (paquete: `models`, `cli`, `connectors/`, `detection/`, `masking`, `scanner`), `eval/` (dataset sintético, etiquetas y evaluación), `schemas/` (JSON Schema del contrato), `tests/` (`unit/`, integración con la marca `integration`), `docs/` (solo Claude)
 - **Arquitectura:** [visión](docs/arquitectura/README.md) · [decisiones](docs/decisiones/README.md) · [criterios](docs/arquitectura/criterios-desarrollo.md)
 - **Estado del proyecto:** solo en [docs/00-inicio.md](docs/00-inicio.md) § Estado actual y en los encargos. Nunca aquí.
 

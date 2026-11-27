@@ -5,15 +5,16 @@ Copiloto local de cumplimiento de la Ley 21.719: inventaria los datos personales
 ## Estado actual · actualizado 2026-11-27
 
 - **Fase:** plan
-- **Funcionalidad activa:** F1 Escaneo Postgres medible (spec: [aprobado 2026-11-27](superpowers/specs/2026-11-26-escaneo-postgres-medible-design.md) · plan: [propuesto 2026-11-27](superpowers/plans/2026-11-27-escaneo-postgres-medible.md) · rama: `feat/escaneo-postgres-medible`)
-- **Lote en curso:** —
-- **Último avance:** plan de F1 escrito (Propuesto, 2026-11-27) con 4 lotes y 2 mediciones; borrador del encargo del lote 0.
-- **Bloqueos:** el plan espera la aprobación del propietario.
-- **Siguiente paso:** propietario: revisar y aprobar el plan de F1. Luego Claude completa Comandos en `AGENTS.md`, autoriza y lanza el encargo del lote 0.
+- **Funcionalidad activa:** F1 Escaneo Postgres medible (spec: [aprobado 2026-11-27](superpowers/specs/2026-11-26-escaneo-postgres-medible-design.md) · plan: [aprobado 2026-11-27](superpowers/plans/2026-11-27-escaneo-postgres-medible.md) · rama: `feat/escaneo-postgres-medible`)
+- **Lote en curso:** lote 0 (E1), listo para lanzar
+- **Último avance:** plan de F1 y sus 7 decisiones aprobados por el propietario el 2026-11-27; Comandos fijados en `AGENTS.md`; encargo E1 (lote 0) en `listo`.
+- **Bloqueos:** ninguno.
+- **Siguiente paso:** Sonnet: lanzar lote 0 (E1) con `enviar-encargo.ps1`. Requiere Docker Desktop corriendo para las verificaciones.
 - **Última bitácora:** ninguna todavía.
 
 | Encargo | Lote | Estado | Siguiente paso |
 | --- | --- | --- | --- |
+| E1 esqueleto y contrato | 0 | listo | Sonnet: lanzar |
 
 <!-- Fases: descubrimiento | diseño | plan | implementación | revisión | despliegue.
      Este bloque es el índice; el detalle de cada encargo vive en su Seguimiento (docs/privado/encargos/).

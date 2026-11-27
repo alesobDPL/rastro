@@ -2,7 +2,7 @@
 
 [Volver al inicio](../../00-inicio.md)
 
-Estado: **Propuesto** el 2026-11-27. Un plan Propuesto no autoriza implementar.
+Estado: **Aprobado** por el propietario el 2026-11-27 (propuesto el mismo día), junto con sus 7 decisiones.
 
 > **Cómo se ejecuta:** lo implementa Codex mediante encargos por lotes (skill `proyecto-ordenado`). Claude redacta cada encargo a partir de este plan, lo lanza, audita la entrega e integra el lote en `feat/escaneo-postgres-medible`. Codex no hace commits: deja los cambios en su worktree y el script de Claude los registra. Los pasos usan casillas (`- [ ]`).
 
@@ -338,9 +338,9 @@ Reglas: cada cambio corrige una clase de error, no una columna: los tokens nuevo
 
 ---
 
-## Decisiones del plan que el propietario debe revisar
+## Decisiones del plan
 
-Todas **Propuestas** hasta que el plan se apruebe.
+Todas **Aprobadas** por el propietario el 2026-11-27 junto con el plan.
 
 1. **`Column.suppressed` en el contrato v1.** El spec pide contar las anulaciones en la evaluación; para que `evaluate.py` lo haga solo desde el JSON, cada columna lleva la lista de anulaciones (regla y contexto, sin valores).
 2. **Evidencia de la capa de nombre sin enmascarar.** Son los tokens del nombre de la columna (metadato), no un valor de la BD. La evidencia de la capa de patrón sí va enmascarada.
