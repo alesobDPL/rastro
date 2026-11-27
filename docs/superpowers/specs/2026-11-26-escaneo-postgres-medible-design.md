@@ -268,7 +268,7 @@ Aislamiento en los encargos *(decisión de Claude)*:
 | Decisión | Quién | Estado |
 | --- | --- | --- |
 | Enfoque "medir primero" | Propietario | **Aprobado** el 2026-11-26 |
-| Capa IA con OpenAI, opcional con `--llm`, modelo inicial `gpt-5-nano` comparado con `gpt-6-luna` (F2) | Propietario | **Aprobado** el 2026-11-26 |
+| Capa IA con OpenAI, opcional con `--llm`, modelo `gpt-6-luna` con esfuerzo `none` y `low` (y `gpt-5-nano` solo si M3 se hace antes de su apagado, 2026-12-11) (F2; corregido el 2026-11-27 por el spec de F2) | Propietario | **Aprobado** el 2026-11-26 |
 | Privacy CI solo sobre migraciones `.sql`; falsos positivos en `rastro.yml` (F3, F6) | Claude | **Aprobado** el 2026-11-27 |
 | Python ≥ 3.11, venv + pip, Postgres 16 en el puerto 54329 | Claude | **Aprobado** el 2026-11-27 |
 | Umbrales (0,6 de confianza, mínimo 5 valores, 20 caracteres para texto libre) | Claude | **Aprobado** el 2026-11-27: ajustables en la ronda de ajuste (§9) |
