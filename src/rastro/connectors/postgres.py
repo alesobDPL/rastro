@@ -1,4 +1,5 @@
 import json
+import os
 from collections.abc import Sequence
 from fnmatch import fnmatchcase
 
@@ -17,6 +18,8 @@ from rastro.connectors.types import (
     TableSample,
 )
 from rastro.models import Source
+
+CONNECT_TIMEOUT_SECONDS = 10
 
 _SCHEMAS = text("SELECT nspname FROM pg_catalog.pg_namespace")
 
@@ -56,12 +59,15 @@ class PostgresConnector:
     def __init__(self, url: str, *, statement_timeout_ms: int = 30000) -> None:
         try:
             parsed_url = make_url(url).set(drivername="postgresql+psycopg")
+            connect_args: dict[str, str | int] = {
+                "options": "-c default_transaction_read_only=on "
+                f"-c statement_timeout={int(statement_timeout_ms)}"
+            }
+            if "connect_timeout" not in parsed_url.query and not os.getenv("PGCONNECT_TIMEOUT"):
+                connect_args["connect_timeout"] = CONNECT_TIMEOUT_SECONDS
             self._engine = create_engine(
                 parsed_url,
-                connect_args={
-                    "options": f"-c default_transaction_read_only=on "
-                    f"-c statement_timeout={int(statement_timeout_ms)}"
-                },
+                connect_args=connect_args,
                 hide_parameters=True,
                 logging_name=__name__,
                 pool_logging_name=__name__,
