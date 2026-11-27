@@ -6,15 +6,18 @@ Copiloto local de cumplimiento de la Ley 21.719: inventaria los datos personales
 
 - **Fase:** implementación
 - **Funcionalidad activa:** F1 Escaneo Postgres medible (spec: [aprobado 2026-11-27](superpowers/specs/2026-11-26-escaneo-postgres-medible-design.md) · plan: [aprobado 2026-11-27](superpowers/plans/2026-11-27-escaneo-postgres-medible.md) · rama: `feat/escaneo-postgres-medible`)
-- **Lote en curso:** lote 0 integrado; lote 1 (T2, T3, T4) en redacción
-- **Último avance:** E1 (lote 0) aceptado el 2026-11-27 e integrado en la rama; pruebas del conjunto: 8 passed, ruff OK (con `.venv` local en la raíz).
+- **Lote en curso:** lote 1 (E2, E3, E4) en curso en paralelo
+- **Último avance:** E1 integrado (2026-11-27); encargos E2, E3 y E4 redactados por Opus, comprobados y lanzados a Codex en paralelo. BD de desarrollo levantada (`docker compose up -d db`).
 - **Bloqueos:** ninguno.
-- **Siguiente paso:** subagente Opus: redactar los encargos del lote 1 (T2, T3, T4); Sonnet los comprueba y lanza. Pruebas del conjunto: `integrar-lote.ps1 -Prueba ".venv/Scripts/python -m pytest"`.
+- **Siguiente paso:** esperar a Codex; al terminar cada uno, Sonnet recoge y audita (E3 y E4 tocan la misma BD: reejecutar sus pruebas de integración al auditar). Pruebas del conjunto: `integrar-lote.ps1 -Prueba ".venv/Scripts/python -m pytest"`.
 - **Última bitácora:** ninguna todavía.
 
 | Encargo | Lote | Estado | Siguiente paso |
 | --- | --- | --- | --- |
 | E1 esqueleto y contrato | 0 | integrado | — |
+| E2 detección | 1 | en curso | esperar a Codex |
+| E3 dataset | 1 | en curso | esperar a Codex |
+| E4 conector y enmascarador | 1 | en curso | esperar a Codex |
 
 <!-- Fases: descubrimiento | diseño | plan | implementación | revisión | despliegue.
      Este bloque es el índice; el detalle de cada encargo vive en su Seguimiento (docs/privado/encargos/).
