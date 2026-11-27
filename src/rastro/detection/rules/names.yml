@@ -35,22 +35,30 @@ rules:
       - surname
     category: identifier
     confidence: 0.8
+    unless: [animal, mascota, pet]
+  - id: name.person_by_role
+    tokens: [titular, responsable, recibido por, received by]
+    category: identifier
+    confidence: 0.7
   - id: name.plate
-    tokens: [matricula vehicular, vehicle registration, license plate, number plate, patente]
+    tokens: [matricula vehicular, vehicle registration, license plate, number plate, patente, placa vehiculo, placa del vehiculo]
     category: identifier
     confidence: 0.8
   - id: name.birth_date
     tokens: [fecha de nacimiento, fecha nacimiento, fecha nac, birth date, date of birth, nacimiento, birthdate, dob]
     category: identifier
     confidence: 0.8
+    unless: [animal, mascota, pet]
   - id: name.age
     tokens: [edad, age]
     category: identifier
     confidence: 0.8
+    unless: [animal, mascota, pet]
   - id: name.sex
     tokens: [sexo, sex, genero, gender]
     category: identifier
     confidence: 0.8
+    unless: [animal, mascota, pet]
   - id: name.contact
     tokens:
       - direccion de correo
@@ -96,6 +104,18 @@ rules:
     tokens: [sueldo, salario, remuneracion, salary, wage, wages, payroll]
     category: financial
     confidence: 0.8
+  - id: name.payment
+    tokens:
+      - monto
+      - reembolso
+      - reembolsado
+      - pagado
+      - cobrado
+      - medio de pago
+      - payment method
+      - refund amount
+    category: financial
+    confidence: 0.7
   - id: name.health
     tokens:
       - licencia medica
@@ -115,6 +135,12 @@ rules:
       - medication
       - salud
       - health
+      - anestesico
+      - clinico
+      - terapia
+      - procedimiento quirurgico
+      - alta medica
+      - clinical finding
     category: sensitive
     subcategory: health
     confidence: 0.9
@@ -174,3 +200,16 @@ rules:
       - adolescent
     category: minors
     confidence: 0.9
+table_rules:
+  - id: name.clinical_event
+    tokens:
+      - cirugia mayor
+      - hospitalizacion clinica
+      - receta medica
+      - examen de laboratorio
+      - registro de vacunacion
+      - surgery
+      - clinical rehabilitation
+    category: sensitive
+    subcategory: health
+    confidence: 0.7
