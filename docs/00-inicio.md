@@ -9,7 +9,7 @@ Copiloto local de cumplimiento de la Ley 21.719: inventaria los datos personales
 - **Lote en curso:** M1 medida; lote 3 (T7 = E7) entregado y auditado por Claude; alcance ampliado a `name_rules.py` y `detect.py` según ADR-001 (Propuesto). Lotes 0, 1 y 2 integrados (164 pruebas, ruff OK)
 - **Último avance:** lote 2 (E5, E6) aceptado e integrado; M1 medida. Dev: precisión 0.875, exhaustividad 0.625, sensibles 0.259. Holdout: 0.889, 0.585, 0.321.
 - **Bloqueos:** ninguno.
-- **Siguiente paso:** el propietario decide E7 (Claude recomienda devolver con 3 cambios mínimos de CA6: quitar `recibido por` y `version`, cambiar un literal de prueba) y aprueba ADR-001. Dev con E7: 0.978 / 0.786 / sensibles 0.407.
+- **Siguiente paso:** el propietario acepta E7 (ronda 1 auditada, sin hallazgos; Claude recomienda aceptar) y aprueba ADR-001. Dev con E7: 0.978 / 0.777 / sensibles 0.407.
 - **Última bitácora:** ninguna todavía.
 
 | Encargo | Lote | Estado | Siguiente paso |
