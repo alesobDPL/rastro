@@ -21,7 +21,11 @@ pip install -e ".[dev]"
 docker compose up -d db
 ```
 
-La base de desarrollo queda en `localhost:54329` con credenciales ficticias; copia `.env.example` a `.env` si quieres cambiar la URL.
+La base de desarrollo queda en `localhost:54329` con credenciales ficticias. Rastro lee la URL de la variable de entorno `RASTRO_DB_URL` (no lee archivos `.env`; `.env.example` solo documenta el valor):
+
+```powershell
+$env:RASTRO_DB_URL = "postgresql://rastro:rastro_dev@localhost:54329/rastro"
+```
 
 ## Uso
 
@@ -43,6 +47,7 @@ El repositorio trae un dataset sintético con tres esquemas, 350 columnas etique
 - `colegio` (**holdout**, 70 columnas): no se usa para ajustar nada; solo mide si las mejoras generalizan.
 
 ```powershell
+New-Item -ItemType Directory -Force eval/results   # `-o` no crea la carpeta
 python -m eval.dataset.load
 rastro scan -o eval/results/scan.json
 python eval/evaluate.py eval/results/scan.json eval/dataset/labels.csv
@@ -71,6 +76,8 @@ Rastro F1 no puede, con reglas, detectar bien dos tipos de columna. Son un lími
 - **Nombres de columna opacos o abreviados** (códigos internos, siglas, nombres sin relación con su contenido) cuando el contenido no calza con un patrón.
 - Los datos **sensibles** (salud, etc.) dependen casi por completo del nombre de la columna; por eso su exhaustividad es la más baja.
 - La muestra son las primeras filas, no una muestra aleatoria.
+- **Solo tablas, no vistas:** las vistas no se escanean.
+- **La precisión sintética es optimista:** algunos tokens de nombre son amplios (por ejemplo `monto` o `menor`) y pueden dar falsos positivos en bases reales, que el dataset sintético no ejercita.
 
 La fase **F2** agrega una capa de IA para clasificar el texto libre y los nombres opacos, con un diseño de enmascarado propio para no enviar datos personales.
 

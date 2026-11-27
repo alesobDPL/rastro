@@ -6,10 +6,10 @@ Copiloto local de cumplimiento de la Ley 21.719: inventaria los datos personales
 
 - **Fase:** implementación
 - **Funcionalidad activa:** F1 Escaneo Postgres medible (spec: [aprobado 2026-11-27](superpowers/specs/2026-11-26-escaneo-postgres-medible-design.md) · plan: [aprobado 2026-11-27](superpowers/plans/2026-11-27-escaneo-postgres-medible.md) · rama: `feat/escaneo-postgres-medible`)
-- **Lote en curso:** lotes 0, 1, 2 y 3 (E1–E7) integrados en `feat/escaneo-postgres-medible` (248 pruebas, ruff OK). ADR-001 Aprobado (2026-11-27). M2 hecha (medición y README); falta la revisión final.
+- **Lote en curso:** lotes 0, 1, 2 y 3 (E1–E7) integrados en `feat/escaneo-postgres-medible` (248 pruebas, ruff OK). ADR-001 Aprobado (2026-11-27). M2 hecha (medición y README); revisión final hecha (R1 corregido, sin otros bloqueantes).
 - **Último avance:** M2: README escrito y medición final. Dev: precisión 0.978, exhaustividad 0.777, sensibles 0.407 (M1: 0.875 / 0.625 / 0.259). Holdout: 0.923 / 0.585 / 0.321 (M1: 0.889 / 0.585 / 0.321): la mejora de dev no se transfirió al holdout salvo en precisión; el README lo declara.
 - **Bloqueos:** ninguno.
-- **Siguiente paso:** revisión final de la rama por el subagente Opus; después `finishing-a-development-branch` (merge a `main` solo con el sí del propietario).
+- **Siguiente paso:** propietario: decidir el merge de `feat/escaneo-postgres-medible` a `main` (revisión final hecha; R1 corregido; deuda no bloqueante en el informe privado).
 - **Última bitácora:** ninguna todavía.
 
 | Encargo | Lote | Estado | Siguiente paso |
