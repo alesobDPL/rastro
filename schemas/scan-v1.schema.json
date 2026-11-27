@@ -1,0 +1,441 @@
+{
+  "$defs": {
+    "Category": {
+      "enum": [
+        "identifier",
+        "contact",
+        "location",
+        "financial",
+        "sensitive",
+        "minors"
+      ],
+      "title": "Category",
+      "type": "string"
+    },
+    "Column": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "data_type": {
+          "title": "Data Type",
+          "type": "string"
+        },
+        "nullable": {
+          "title": "Nullable",
+          "type": "boolean"
+        },
+        "null_ratio": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Null Ratio"
+        },
+        "status": {
+          "$ref": "#/$defs/Status"
+        },
+        "sensitive": {
+          "title": "Sensitive",
+          "type": "boolean"
+        },
+        "categories": {
+          "items": {
+            "$ref": "#/$defs/Category"
+          },
+          "title": "Categories",
+          "type": "array"
+        },
+        "masked_samples": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 3,
+          "title": "Masked Samples",
+          "type": "array"
+        },
+        "findings": {
+          "items": {
+            "$ref": "#/$defs/Finding"
+          },
+          "title": "Findings",
+          "type": "array"
+        },
+        "suppressed": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/Suppression"
+          },
+          "title": "Suppressed",
+          "type": "array"
+        }
+      },
+      "required": [
+        "name",
+        "data_type",
+        "nullable",
+        "null_ratio",
+        "status",
+        "sensitive",
+        "categories",
+        "masked_samples",
+        "findings"
+      ],
+      "title": "Column",
+      "type": "object"
+    },
+    "Detector": {
+      "enum": [
+        "name",
+        "pattern"
+      ],
+      "title": "Detector",
+      "type": "string"
+    },
+    "Finding": {
+      "additionalProperties": false,
+      "properties": {
+        "category": {
+          "$ref": "#/$defs/Category"
+        },
+        "subcategory": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/SensitiveSubcategory"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "sensitivity": {
+          "$ref": "#/$defs/Sensitivity"
+        },
+        "confidence": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Confidence",
+          "type": "number"
+        },
+        "detector": {
+          "$ref": "#/$defs/Detector"
+        },
+        "rule_id": {
+          "title": "Rule Id",
+          "type": "string"
+        },
+        "evidence": {
+          "title": "Evidence",
+          "type": "string"
+        }
+      },
+      "required": [
+        "category",
+        "sensitivity",
+        "confidence",
+        "detector",
+        "rule_id",
+        "evidence"
+      ],
+      "title": "Finding",
+      "type": "object"
+    },
+    "SensitiveSubcategory": {
+      "enum": [
+        "health",
+        "biometric",
+        "ethnic_origin",
+        "beliefs",
+        "sexual_orientation",
+        "political_affiliation",
+        "union_affiliation"
+      ],
+      "title": "SensitiveSubcategory",
+      "type": "string"
+    },
+    "Sensitivity": {
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "title": "Sensitivity",
+      "type": "string"
+    },
+    "Settings": {
+      "additionalProperties": false,
+      "properties": {
+        "sample_size": {
+          "title": "Sample Size",
+          "type": "integer"
+        },
+        "schemas": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Schemas",
+          "type": "array"
+        },
+        "excluded_tables": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Excluded Tables",
+          "type": "array"
+        },
+        "layers": {
+          "items": {
+            "enum": [
+              "name",
+              "pattern"
+            ],
+            "type": "string"
+          },
+          "title": "Layers",
+          "type": "array"
+        }
+      },
+      "required": [
+        "sample_size",
+        "schemas",
+        "excluded_tables",
+        "layers"
+      ],
+      "title": "Settings",
+      "type": "object"
+    },
+    "Source": {
+      "additionalProperties": false,
+      "properties": {
+        "engine": {
+          "const": "postgresql",
+          "title": "Engine",
+          "type": "string"
+        },
+        "host": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Host"
+        },
+        "port": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Port"
+        },
+        "database": {
+          "title": "Database",
+          "type": "string"
+        },
+        "user": {
+          "title": "User",
+          "type": "string"
+        }
+      },
+      "required": [
+        "engine",
+        "host",
+        "port",
+        "database",
+        "user"
+      ],
+      "title": "Source",
+      "type": "object"
+    },
+    "Status": {
+      "enum": [
+        "personal",
+        "ambiguous",
+        "not_personal"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "Summary": {
+      "additionalProperties": false,
+      "properties": {
+        "tables": {
+          "title": "Tables",
+          "type": "integer"
+        },
+        "columns": {
+          "title": "Columns",
+          "type": "integer"
+        },
+        "personal": {
+          "title": "Personal",
+          "type": "integer"
+        },
+        "sensitive": {
+          "title": "Sensitive",
+          "type": "integer"
+        },
+        "ambiguous": {
+          "title": "Ambiguous",
+          "type": "integer"
+        },
+        "failed_tables": {
+          "title": "Failed Tables",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "tables",
+        "columns",
+        "personal",
+        "sensitive",
+        "ambiguous",
+        "failed_tables"
+      ],
+      "title": "Summary",
+      "type": "object"
+    },
+    "Suppression": {
+      "additionalProperties": false,
+      "properties": {
+        "rule_id": {
+          "title": "Rule Id",
+          "type": "string"
+        },
+        "context": {
+          "title": "Context",
+          "type": "string"
+        },
+        "detector": {
+          "$ref": "#/$defs/Detector"
+        }
+      },
+      "required": [
+        "rule_id",
+        "context",
+        "detector"
+      ],
+      "title": "Suppression",
+      "type": "object"
+    },
+    "Table": {
+      "additionalProperties": false,
+      "properties": {
+        "schema": {
+          "title": "Schema",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "estimated_rows": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Estimated Rows"
+        },
+        "sampled_rows": {
+          "title": "Sampled Rows",
+          "type": "integer"
+        },
+        "error": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Error"
+        },
+        "columns": {
+          "items": {
+            "$ref": "#/$defs/Column"
+          },
+          "title": "Columns",
+          "type": "array"
+        }
+      },
+      "required": [
+        "schema",
+        "name",
+        "estimated_rows",
+        "sampled_rows",
+        "error",
+        "columns"
+      ],
+      "title": "Table",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1",
+      "default": "1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "rastro_version": {
+      "title": "Rastro Version",
+      "type": "string"
+    },
+    "started_at": {
+      "format": "date-time",
+      "title": "Started At",
+      "type": "string"
+    },
+    "finished_at": {
+      "format": "date-time",
+      "title": "Finished At",
+      "type": "string"
+    },
+    "source": {
+      "$ref": "#/$defs/Source"
+    },
+    "settings": {
+      "$ref": "#/$defs/Settings"
+    },
+    "summary": {
+      "$ref": "#/$defs/Summary"
+    },
+    "tables": {
+      "items": {
+        "$ref": "#/$defs/Table"
+      },
+      "title": "Tables",
+      "type": "array"
+    }
+  },
+  "required": [
+    "rastro_version",
+    "started_at",
+    "finished_at",
+    "source",
+    "settings",
+    "summary",
+    "tables"
+  ],
+  "title": "Scan",
+  "type": "object"
+}

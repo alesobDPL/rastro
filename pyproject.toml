@@ -1,0 +1,40 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "rastro"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+    "typer>=0.12",
+    "sqlalchemy>=2.0",
+    "psycopg[binary]>=3.1",
+    "pydantic>=2.6",
+    "pyyaml>=6",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",
+    "faker>=25",
+    "ruff>=0.5",
+]
+
+[project.scripts]
+rastro = "rastro.cli:app"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/rastro"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src", "."]
+addopts = "--import-mode=importlib"
+markers = ["integration: pruebas que requieren PostgreSQL"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
