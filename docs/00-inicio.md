@@ -6,15 +6,15 @@ Copiloto local de cumplimiento de la Ley 21.719: inventaria los datos personales
 
 - **Fase:** implementación
 - **Funcionalidad activa:** F1 Escaneo Postgres medible (spec: [aprobado 2026-11-27](superpowers/specs/2026-11-26-escaneo-postgres-medible-design.md) · plan: [aprobado 2026-11-27](superpowers/plans/2026-11-27-escaneo-postgres-medible.md) · rama: `feat/escaneo-postgres-medible`)
-- **Lote en curso:** lote 0 (E1), entregado y auditado
-- **Último avance:** E1 (lote 0) entregado por Codex y auditado por Claude: 8 pruebas, ruff y compose en verde; Claude recomienda aceptar.
+- **Lote en curso:** lote 0 integrado; lote 1 (T2, T3, T4) en redacción
+- **Último avance:** E1 (lote 0) aceptado el 2026-11-27 e integrado en la rama; pruebas del conjunto: 8 passed, ruff OK (con `.venv` local en la raíz).
 - **Bloqueos:** ninguno.
-- **Siguiente paso:** propietario: aceptar o devolver E1. Luego Claude: integrar el lote 0 y delegar al subagente Opus los encargos del lote 1 (T2, T3, T4).
+- **Siguiente paso:** subagente Opus: redactar los encargos del lote 1 (T2, T3, T4); Sonnet los comprueba y lanza. Pruebas del conjunto: `integrar-lote.ps1 -Prueba ".venv/Scripts/python -m pytest"`.
 - **Última bitácora:** ninguna todavía.
 
 | Encargo | Lote | Estado | Siguiente paso |
 | --- | --- | --- | --- |
-| E1 esqueleto y contrato | 0 | entregado, auditado | Propietario: aceptar o devolver |
+| E1 esqueleto y contrato | 0 | integrado | — |
 
 <!-- Fases: descubrimiento | diseño | plan | implementación | revisión | despliegue.
      Este bloque es el índice; el detalle de cada encargo vive en su Seguimiento (docs/privado/encargos/).
