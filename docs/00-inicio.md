@@ -2,14 +2,14 @@
 
 Copiloto local de cumplimiento de la Ley 21.719: inventaria los datos personales de una base de datos y un repositorio, los clasifica por sensibilidad y recomienda acciones, sin que los datos salgan del servidor.
 
-## Estado actual · actualizado 2026-11-26
+## Estado actual · actualizado 2026-11-27
 
-- **Fase:** descubrimiento
-- **Funcionalidad activa:** ninguna (spec: — · plan: — · rama: —)
+- **Fase:** plan
+- **Funcionalidad activa:** F1 Escaneo Postgres medible (spec: [aprobado 2026-11-27](superpowers/specs/2026-11-26-escaneo-postgres-medible-design.md) · plan: en redacción · rama: `feat/escaneo-postgres-medible`)
 - **Lote en curso:** —
-- **Último avance:** estructura del proyecto creada.
+- **Último avance:** hoja de ruta y spec de F1 aprobados por el propietario el 2026-11-27.
 - **Bloqueos:** ninguno.
-- **Siguiente paso:** brainstorming del MVP.
+- **Siguiente paso:** Claude: escribir el plan de F1 (writing-plans) con su tabla de lotes y redactar los encargos del lote 0.
 - **Última bitácora:** ninguna todavía.
 
 | Encargo | Lote | Estado | Siguiente paso |
