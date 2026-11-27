@@ -4,12 +4,12 @@ Copiloto local de cumplimiento de la Ley 21.719: inventaria los datos personales
 
 ## Estado actual · actualizado 2026-11-27
 
-- **Fase:** F1 terminada y en `main` (merge local 2026-11-27, sin push); F2 por diseñar
+- **Fase:** F1 terminada y en `main` (merge local y push a origin, 2026-11-27); encargo E8 (N1–N3) en redacción; F2 en diseño
 - **Funcionalidad activa:** ninguna. F1 Escaneo Postgres medible integrada en `main` (rama `feat/escaneo-postgres-medible`, conservada).
 - **Lote en curso:** ninguno. Lotes 0–3 (E1–E7), M2 y revisión final hechos; 248 pruebas, ruff OK.
 - **Último avance:** merge de F1 a `main` autorizado por el propietario (2026-11-27). Dev: 0.978 / 0.777 / sensibles 0.407; holdout: 0.923 / 0.585 / 0.321. Deuda no bloqueante en `docs/privado/fases-y-pruebas/revision-final-escaneo-postgres-medible.md`.
 - **Bloqueos:** ninguno.
-- **Siguiente paso:** propietario: decidir si hace push de `main`, si se lanza un encargo corto para N1–N3 (validación de `--sample-size`, `connect_timeout`, error de `-o`) y cuándo se diseña F2 (recordar clave de OpenAI y límite de gasto).
+- **Siguiente paso:** Sonnet: comprobar el borrador del encargo E8 (N1–N3: validación de `--sample-size`, `connect_timeout`, error de `-o`, rama `feat/endurecer-cli-escaneo`) y marcarlo `listo`; llevar al propietario las preguntas de diseño de F2 (proveedor de IA: OpenAI o API de Claude; clave y límite de gasto).
 - **Última bitácora:** ninguna todavía.
 
 | Encargo | Lote | Estado | Siguiente paso |
