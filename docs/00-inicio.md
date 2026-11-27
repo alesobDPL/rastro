@@ -4,7 +4,7 @@ Copiloto local de cumplimiento de la Ley 21.719: inventaria los datos personales
 
 ## Estado actual · actualizado 2026-11-27
 
-- **Fase:** plan
+- **Fase:** implementación
 - **Funcionalidad activa:** F1 Escaneo Postgres medible (spec: [aprobado 2026-11-27](superpowers/specs/2026-11-26-escaneo-postgres-medible-design.md) · plan: [aprobado 2026-11-27](superpowers/plans/2026-11-27-escaneo-postgres-medible.md) · rama: `feat/escaneo-postgres-medible`)
 - **Lote en curso:** lote 0 (E1), listo para lanzar
 - **Último avance:** plan de F1 y sus 7 decisiones aprobados por el propietario el 2026-11-27; Comandos fijados en `AGENTS.md`; encargo E1 (lote 0) en `listo`.
