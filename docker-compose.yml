@@ -1,0 +1,14 @@
+services:
+  db:
+    image: postgres:16
+    ports:
+      - "54329:5432"
+    environment:
+      POSTGRES_USER: rastro
+      POSTGRES_DB: rastro
+      POSTGRES_PASSWORD: ${RASTRO_PG_PASSWORD:-rastro_dev}
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "rastro", "-d", "rastro"]
+      interval: 5s
+      timeout: 3s
+      retries: 5

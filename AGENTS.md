@@ -36,16 +36,16 @@ Tu último mensaje es solo el JSON de entrega (el esquema lo envía Claude): com
 
 ## Comandos
 
-Pendiente: se completa cuando el plan aprobado fije el stack.
+Fijados por el plan de F1 (Aprobado 2026-11-27). Las pruebas de integración necesitan la BD de desarrollo levantada y `RASTRO_TEST_DB_URL` definida (valor en `.env.example`); sin ella se omiten (`skipped`), no fallan.
 
 | Acción | Comando |
 | --- | --- |
-| Instalar | |
-| Desarrollo | |
-| Pruebas (todas) | |
-| Pruebas (un archivo) | |
-| Pruebas visuales (capturas) | |
-| Lint | |
-| Tipos | |
+| Instalar | `pip install -e ".[dev]"` |
+| Desarrollo | `docker compose up -d db` |
+| Pruebas (todas) | `pytest` |
+| Pruebas (un archivo) | `pytest tests/ruta/test_x.py` |
+| Pruebas visuales (capturas) | no aplica (CLI sin interfaz gráfica) |
+| Lint | `ruff check .` |
+| Tipos | no aplica |
 
 <!-- integrar-lote.ps1 ejecuta el comando de "Pruebas (todas)", escrito entre comillas invertidas, si no recibe -Prueba. -->

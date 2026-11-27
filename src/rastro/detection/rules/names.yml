@@ -1,0 +1,215 @@
+rules:
+  - id: name.rut
+    tokens: [rut dv, run dv, digito verificador, check digit, rut, run]
+    category: identifier
+    confidence: 0.9
+  - id: name.national_id
+    tokens:
+      - identificacion nacional
+      - documento de identidad
+      - numero de documento
+      - national id
+      - identity document
+      - identification number
+      - passport number
+      - cedula
+      - dni
+      - pasaporte
+      - passport
+    category: identifier
+    confidence: 0.8
+  - id: name.person_name
+    tokens:
+      - nombre completo
+      - primer nombre
+      - apellido paterno
+      - apellido materno
+      - first name
+      - last name
+      - full name
+      - given name
+      - family name
+      - nombre
+      - apellido
+      - name
+      - surname
+    category: identifier
+    confidence: 0.8
+    unless: [animal, mascota, pet]
+  - id: name.person_by_role
+    tokens: [titular, responsable, received by]
+    category: identifier
+    confidence: 0.7
+  - id: name.plate
+    tokens: [matricula vehicular, vehicle registration, license plate, number plate, patente, placa vehiculo, placa del vehiculo]
+    category: identifier
+    confidence: 0.8
+  - id: name.birth_date
+    tokens: [fecha de nacimiento, fecha nacimiento, fecha nac, birth date, date of birth, nacimiento, birthdate, dob]
+    category: identifier
+    confidence: 0.8
+    unless: [animal, mascota, pet]
+  - id: name.age
+    tokens: [edad, age]
+    category: identifier
+    confidence: 0.8
+    unless: [animal, mascota, pet]
+  - id: name.sex
+    tokens: [sexo, sex, genero, gender]
+    category: identifier
+    confidence: 0.8
+    unless: [animal, mascota, pet]
+  - id: name.contact
+    tokens:
+      - direccion de correo
+      - direccion correo
+      - correo electronico
+      - email address
+      - e mail address
+      - phone number
+      - e mail
+      - fono
+      - telefono
+      - phone
+      - telephone
+      - celular
+      - mobile
+      - correo
+      - email
+      - contacto
+      - contact
+    category: contact
+    confidence: 0.8
+  - id: name.address
+    tokens: [direccion postal, postal address, street address, direccion, domicilio, address]
+    category: location
+    confidence: 0.8
+  - id: name.administrative_area
+    tokens: [comuna, municipality, region]
+    category: location
+    confidence: 0.8
+  - id: name.coordinates
+    tokens: [coordenada, coordinates, coordinate, latitud, longitud geografica, latitude, longitude]
+    category: location
+    confidence: 0.8
+  - id: name.card
+    tokens: [tarjeta de credito, tarjeta de debito, credit card, debit card, card number, tarjeta]
+    category: financial
+    confidence: 0.8
+  - id: name.bank_account
+    tokens: [cuenta bancaria, numero de cuenta, bank account, cuenta corriente, checking account, iban]
+    category: financial
+    confidence: 0.8
+  - id: name.salary
+    tokens: [sueldo, salario, remuneracion, salary, wage, wages, payroll]
+    category: financial
+    confidence: 0.8
+  - id: name.payment
+    tokens:
+      - monto
+      - reembolso
+      - reembolsado
+      - pagado
+      - cobrado
+      - medio de pago
+      - payment method
+      - refund amount
+    category: financial
+    confidence: 0.7
+  - id: name.health
+    tokens:
+      - licencia medica
+      - medical leave
+      - sick leave
+      - medical condition
+      - diagnostico
+      - diagnosis
+      - enfermedad
+      - illness
+      - disease
+      - alergia
+      - allergy
+      - allergies
+      - medicamento
+      - medicine
+      - medication
+      - salud
+      - health
+      - anestesico
+      - clinico
+      - terapia
+      - procedimiento quirurgico
+      - alta medica
+      - clinical finding
+    category: sensitive
+    subcategory: health
+    confidence: 0.9
+  - id: name.biometric
+    tokens: [huella dactilar, reconocimiento facial, facial recognition, biometrico, biometria, biometric, biometrics, fingerprint]
+    category: sensitive
+    subcategory: biometric
+    confidence: 0.9
+  - id: name.ethnic_origin
+    tokens: [origen etnico, ethnic origin, etnia, ethnicity]
+    category: sensitive
+    subcategory: ethnic_origin
+    confidence: 0.9
+  - id: name.beliefs
+    tokens: [creencia religiosa, religious belief, creencia, belief, beliefs, religion]
+    category: sensitive
+    subcategory: beliefs
+    confidence: 0.9
+  - id: name.sexual_orientation
+    tokens: [orientacion sexual, sexual orientation, identidad de genero, identidad genero, gender identity, vida sexual, sex life]
+    category: sensitive
+    subcategory: sexual_orientation
+    confidence: 0.9
+  - id: name.political_affiliation
+    tokens: [afiliacion politica, partido politico, political affiliation, political party]
+    category: sensitive
+    subcategory: political_affiliation
+    confidence: 0.9
+  - id: name.union_affiliation
+    tokens: [afiliacion sindical, union affiliation, union membership, sindicato, trade union, labor union, labour union]
+    category: sensitive
+    subcategory: union_affiliation
+    confidence: 0.9
+  - id: name.minors
+    tokens:
+      - fecha nacimiento menor
+      - fecha de nacimiento del menor
+      - child birth date
+      - student birth date
+      - legal guardian
+      - menor
+      - minor
+      - alumno
+      - alumna
+      - estudiante
+      - student
+      - hijo
+      - hija
+      - child
+      - children
+      - apoderado
+      - apoderada
+      - guardian
+      - niño
+      - niña
+      - adolescente
+      - adolescent
+    category: minors
+    confidence: 0.9
+table_rules:
+  - id: name.clinical_event
+    tokens:
+      - cirugia mayor
+      - hospitalizacion clinica
+      - receta medica
+      - examen de laboratorio
+      - registro de vacunacion
+      - surgery
+      - clinical rehabilitation
+    category: sensitive
+    subcategory: health
+    confidence: 0.7
