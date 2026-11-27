@@ -2,7 +2,7 @@
 
 [Decisiones](README.md) · [Inicio](../00-inicio.md)
 
-**Estado:** Propuesto (redactado el 2026-11-27 por el subagente Opus; el propietario dio su visto bueno al enfoque en el chat ese día, pendiente de registrarlo como Aprobado)
+**Estado:** Aprobado (2026-11-27). Redactado por el subagente Opus; aprobado por el propietario junto con la aceptación de E7.
 
 ## Contexto
 
