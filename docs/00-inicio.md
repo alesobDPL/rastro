@@ -9,7 +9,7 @@ Copiloto local de cumplimiento de la Ley 21.719: inventaria los datos personales
 - **Lote en curso:** lote 2 (E5, E6) en curso en paralelo
 - **Último avance:** encargos E5 y E6 redactados por Opus, comprobados y lanzados a Codex en paralelo. E5 refuerza la prueba de privacidad con los valores internos de jsonb.
 - **Bloqueos:** ninguno.
-- **Siguiente paso:** esperar a Codex; al terminar cada uno, Sonnet recoge y audita. E5 recarga los esquemas del dataset en la BD (no correr en paralelo con `test_dataset_load`).
+- **Siguiente paso:** pausa pedida por el propietario: cuando Codex termine E5 y E6, solo guardar el estado y parar. Después, Sonnet audita E5 y E6 con `auditar-encargo.ps1`. E5 recarga los esquemas del dataset en la BD (no correr en paralelo con `test_dataset_load`).
 - **Última bitácora:** ninguna todavía.
 
 | Encargo | Lote | Estado | Siguiente paso |
