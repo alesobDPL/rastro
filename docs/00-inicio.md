@@ -4,12 +4,12 @@ Copiloto local de cumplimiento de la Ley 21.719: inventaria los datos personales
 
 ## Estado actual · actualizado 2026-11-27
 
-- **Fase:** F1 terminada y en `main` (merge local y push a origin, 2026-11-27); encargo E8 (N1–N3) en redacción; F2 en diseño
-- **Funcionalidad activa:** ninguna. F1 Escaneo Postgres medible integrada en `main` (rama `feat/escaneo-postgres-medible`, conservada).
-- **Lote en curso:** ninguno. Lotes 0–3 (E1–E7), M2 y revisión final hechos; 248 pruebas, ruff OK.
-- **Último avance:** merge de F1 a `main` autorizado por el propietario (2026-11-27). Dev: 0.978 / 0.777 / sensibles 0.407; holdout: 0.923 / 0.585 / 0.321. Deuda no bloqueante en `docs/privado/fases-y-pruebas/revision-final-escaneo-postgres-medible.md`.
+- **Fase:** F1 terminada y en `main` (push a origin, 2026-11-27); E8 (N1–N3) integrado en `feat/endurecer-cli-escaneo` (sin merge a `main`); F2 con spec **Propuesto**.
+- **Funcionalidad activa:** ninguna. Endurecimiento del CLI (E8) en `feat/endurecer-cli-escaneo`: `--sample-size` ≥ 1, `connect_timeout` 10 s por defecto, validación de `-o`.
+- **Lote en curso:** ninguno. E1–E8 integrados; 262 pruebas, ruff OK en la rama.
+- **Último avance:** E8 aceptado por el propietario e integrado (2026-11-27). Spec F2 (capa IA, solo OpenAI, tope USD 1,50 acumulado) escrito por Opus, pendiente de aprobación.
 - **Bloqueos:** ninguno.
-- **Siguiente paso:** Sonnet: comprobar el borrador del encargo E8 (N1–N3: validación de `--sample-size`, `connect_timeout`, error de `-o`, rama `feat/endurecer-cli-escaneo`) y marcarlo `listo`; llevar al propietario las preguntas de diseño de F2 (proveedor de IA: OpenAI o API de Claude; clave y límite de gasto).
+- **Siguiente paso:** propietario: aprobar el spec F2 (`superpowers/specs/2026-11-27-capa-ia-design.md`) y la corrección de la hoja de ruta; decidir el merge de `feat/endurecer-cli-escaneo` a `main`. Luego: plan de F2 (Opus). La clave de OpenAI solo se pide cuando haga falta, por variable de entorno.
 - **Última bitácora:** ninguna todavía.
 
 | Encargo | Lote | Estado | Siguiente paso |
@@ -21,6 +21,7 @@ Copiloto local de cumplimiento de la Ley 21.719: inventaria los datos personales
 | E5 escáner y CLI | 2 | integrado | — |
 | E6 evaluación | 2 | integrado | — |
 | E7 ajuste de detección | 3 | integrado | — |
+| E8 endurecer CLI (N1–N3) | Mant. 1 | integrado | merge a `main` con el sí del propietario |
 
 <!-- Fases: descubrimiento | diseño | plan | implementación | revisión | despliegue.
      Este bloque es el índice; el detalle de cada encargo vive en su Seguimiento (docs/privado/encargos/).
