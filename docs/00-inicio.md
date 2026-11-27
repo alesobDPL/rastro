@@ -6,10 +6,10 @@ Copiloto local de cumplimiento de la Ley 21.719: inventaria los datos personales
 
 - **Fase:** implementación
 - **Funcionalidad activa:** F1 Escaneo Postgres medible (spec: [aprobado 2026-11-27](superpowers/specs/2026-11-26-escaneo-postgres-medible-design.md) · plan: [aprobado 2026-11-27](superpowers/plans/2026-11-27-escaneo-postgres-medible.md) · rama: `feat/escaneo-postgres-medible`)
-- **Lote en curso:** lote 1 integrado; lote 2 (T5, T6) en redacción
-- **Último avance:** lote 1 (E2, E3, E4) aceptado el 2026-11-27 e integrado en la rama; pruebas del conjunto: 127 passed, ruff OK.
+- **Lote en curso:** lote 2 (E5, E6) en curso en paralelo
+- **Último avance:** encargos E5 y E6 redactados por Opus, comprobados y lanzados a Codex en paralelo. E5 refuerza la prueba de privacidad con los valores internos de jsonb.
 - **Bloqueos:** ninguno.
-- **Siguiente paso:** subagente Opus: redactar los encargos del lote 2 (T5 escáner y CLI, T6 evaluación); Sonnet los comprueba y lanza. Pruebas del conjunto: `integrar-lote.ps1 -Prueba '.venv\Scripts\python -m pytest'` (barras invertidas) con `RASTRO_TEST_DB_URL` definida.
+- **Siguiente paso:** esperar a Codex; al terminar cada uno, Sonnet recoge y audita. E5 recarga los esquemas del dataset en la BD (no correr en paralelo con `test_dataset_load`).
 - **Última bitácora:** ninguna todavía.
 
 | Encargo | Lote | Estado | Siguiente paso |
@@ -18,6 +18,8 @@ Copiloto local de cumplimiento de la Ley 21.719: inventaria los datos personales
 | E2 detección | 1 | integrado | — |
 | E3 dataset | 1 | integrado | — |
 | E4 conector y enmascarador | 1 | integrado | — |
+| E5 escáner y CLI | 2 | en curso | esperar a Codex |
+| E6 evaluación | 2 | en curso | esperar a Codex |
 
 <!-- Fases: descubrimiento | diseño | plan | implementación | revisión | despliegue.
      Este bloque es el índice; el detalle de cada encargo vive en su Seguimiento (docs/privado/encargos/).
