@@ -7,7 +7,7 @@ Copiloto local de cumplimiento de la Ley 21.719: inventaria los datos personales
 - **Fase:** implementación
 - **Funcionalidad activa:** F1 Escaneo Postgres medible (spec: [aprobado 2026-11-27](superpowers/specs/2026-11-26-escaneo-postgres-medible-design.md) · plan: [aprobado 2026-11-27](superpowers/plans/2026-11-27-escaneo-postgres-medible.md) · rama: `feat/escaneo-postgres-medible`)
 - **Lote en curso:** M1 medida; lote 3 (T7) por redactar. Lotes 0, 1 y 2 integrados (164 pruebas, ruff OK)
-- **Último avance:** encargos E5 y E6 redactados por Opus, comprobados y lanzados a Codex en paralelo. E5 refuerza la prueba de privacidad con los valores internos de jsonb.
+- **Último avance:** lote 2 (E5, E6) aceptado e integrado; M1 medida. Dev: precisión 0.875, exhaustividad 0.625, sensibles 0.259. Holdout: 0.889, 0.585, 0.321.
 - **Bloqueos:** ninguno.
 - **Siguiente paso:** M1 hecha (línea base en `docs/privado/fases-y-pruebas/2026-11-27-m1-linea-base.md`). Con el visto bueno del propietario, el subagente Opus redacta T7 (lote 3, afinación con los errores de dev); después Sonnet lo comprueba y lo lanza.
 - **Última bitácora:** ninguna todavía.
